@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Image Encryption</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="containerNav">
+        <div class="navHeader"><div>Image Encryption</div></div>
+        <div class="nav">
+            <ul>
+                <li class="liAbout"><button>About</button></li>
+                <li class="liEncryption"><button>Encryption</button></li>
+                <li class="liDecryption"><button>Decryption</button></li>
+            </ul>
+        </div>
+        <div class="navFooter">
+            <button>About Me</button>
+            <button>Privacy</button>
+        </div>
+    </div>
+    <button class="containerNavOutside" onclick="navToggle()"></button>
+    <div class="containerContent">
+        <button class="navButton" onclick="navToggle()"><img src="./assets/menu.png" alt="menu"></button>
+        <div class="bannerTop"></div>
+        <div class="about">
+            <div class="bannerFixed">About</div>
+            <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
+                pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud
+                nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia
+                pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem
+                duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt
+                duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris
+                sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</p>
+        </div>
+        <div class="encryption">
+            <div class="bannerFixed">Encryption</div>
+            <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
+                pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud
+                nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia
+                pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem
+                duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt
+                duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris
+                sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</p>
+        </div>
+        <div class="decryption">
+            <div class="bannerFixed">Decryption</div>
+            <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
+                pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud
+                nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia
+                pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem
+                duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt
+                duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris
+                sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</p>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+
+    function navToggle(){
+        var containerNav = document.getElementsByClassName("containerNav")[0].classList;
+        if (containerNav.contains("containerNavShow")) {
+            containerNav.remove("containerNavShow");
+        }
+        else {
+            containerNav.add("containerNavShow");
+        }
+
+        var containerNavOutside = document.getElementsByClassName("containerNavOutside")[0].classList;
+        if (containerNavOutside.contains("containerNavOutsideShow")) {
+            containerNavOutside.remove("containerNavOutsideShow");
+        }
+        else {
+            containerNavOutside.add("containerNavOutsideShow");
+        }
+    }
+
+    function jumpToBlock(className) {
+        var element = document.getElementsByClassName(className)[0];
+        var about = document.getElementsByClassName("about")[0];
+        var encryption = document.getElementsByClassName("encryption")[0];
+        var decryption = document.getElementsByClassName("decryption")[0];
+
+        if (getComputedStyle(element).display == "none") {
+            about.style.setProperty("display", "none");
+            encryption.style.setProperty("display","none");
+            decryption.style.setProperty("display","none");
+            element.style.setProperty("display","block");
+        }
+        return false;
+    }
+
+    document.getElementsByClassName("liAbout")[0].onclick = function() {jumpToBlock("about")};
+    document.getElementsByClassName("liEncryption")[0].onclick = function() {jumpToBlock("encryption")};
+    document.getElementsByClassName("liDecryption")[0].onclick = function() {jumpToBlock("decryption")};
+
+</script>
+
+</html>

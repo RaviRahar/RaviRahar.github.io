@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    --background: #fff;
+    --background-alt: #fafafa;
+    --primary: #b2ebf2;
+    --p-light: #e5ffff;
+    --p-dark: #81b9bf;
+    --secondary: #f48fb1;
+    --s-light: #ffc1e3;
+    --s-dark: #bf5f82;
+    --error: #b00020;
+    --on-primary: #000;
+    --on-secondary: #fff;
+}
+
+body.darkTheme {
+    --background: #3a3a3a;
+    --primary: #b2ebf2;
+    --p-light: #e5ffff;
+    --p-dark: #81b9bf;
+    --secondary: #f48fb1;
+    --s-light: #ffc1e3;
+    --s-dark: #bf5f82;
+    --error: #b00020;
+    --on-primary: #000;
+    --on-secondary: #fff;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+p {
+    font-size: 2rem;
+    padding: 5rem;
+    max-width:60ch;
+    margin: auto;
+}
+
+button {
+    display: block;
+    cursor: pointer;
+    border: none;
+}
+
+li a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.containerNav {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    overflow: hidden;
+    background: var(--background);
+}
+
+.containerNav button {
+    background: var(--background)
+}
+
+.navHeader {
+    padding: 4em;
+    font-size: 2rem;
+    background: var(--primary);
+}
+
+.navHeader div {
+    inline-size: min-content;
+}
+
+.nav {
+    font-size: 1.5rem;
+    padding: 3em;
+}
+
+.navFooter {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navFooter button {
+    padding: 3em 0.5em;
+    font-size: 1.3rem;
+    color: var(--on-primary);
+}
+
+.nav li {
+    padding: 1.5em;
+}
+
+.nav button:hover, .navFooter button:hover, .nav li:hover {
+    cursor: pointer;
+    color: var(--p-dark);
+}
+
+.containerContent {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    margin-left: 15%;
+    background: var(--background-alt);
+}
+
+.navButton {
+    display: none;
+}
+
+.bannerTop {
+    min-height: 8rem;
+    background: var(--p-dark);
+}
+
+.bannerFixed {
+    position: sticky;
+    top: 0;
+    padding: 0.83em 3em;
+    font-size: 4.5rem;
+    font-weight: bold;
+    background: var(--p-dark);
+    color: var(--on-secondary);
+}
+
+.containerNavOutside {
+    display: none;
+}
+
+.about {
+    display: block;
+}
+
+.encryption {
+    display: none;
+}
+
+.decryption {
+    display: none;
+}
+
+@media only screen and (max-width: 1478px) {
+
+    .bannerFixed {
+        padding: 0.83em 4em;
+    }
+
+    .containerNav {
+        width: 30%;
+        display: none;
+        z-index: 2;
+    }
+
+    .containerNavShow {
+        display: flex;
+    }
+
+    .containerNavOutside {
+        display: none;
+        position: fixed;
+        z-index: 2;
+        right: 0;
+        width: 70%;
+        height: 100%;
+        border: none;
+        background: transparent;
+    }
+
+    .containerNavOutsideShow {
+        display: block;
+    }
+
+    .containerContent {
+       margin-left: 0;
+    }
+
+   .navButton {
+       display: block;
+       position: fixed;
+       left: 5%;
+       top: 10%;
+       cursor: pointer;
+       border: none;
+       z-index: 1;
+       background: var(--p-dark);
+   }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .bannerFixed {
+        padding: 0.83em 2em;
+    }
+
+    .containerNav {
+        width: 70%;
+    }
+
+    .containerNavOutside {
+        width: 30%;
+    }
+}
