@@ -19,15 +19,15 @@
             </ul>
         </div>
         <div class="navFooter">
-            <button>About Me</button>
-            <button>Privacy</button>
+            <button class="buttonAboutMe">About Me</button>
+            <button class="buttonPrivacy">Privacy</button>
         </div>
     </div>
     <button class="containerNavOutside" onclick="navToggle()"></button>
     <div class="containerContent">
         <button class="navButton" onclick="navToggle()"><img src="./assets/menu.png" alt="menu"></button>
         <div class="bannerTop"></div>
-        <div class="about">
+        <div class="about" style="display: block;">
             <div class="bannerFixed">About</div>
             <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
                 pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud
@@ -37,7 +37,7 @@
                 duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris
                 sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</p>
         </div>
-        <div class="encryption">
+        <div class="encryption" style="display: none;">
             <div class="bannerFixed">Encryption</div>
             <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
                 pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud
@@ -47,7 +47,7 @@
                 duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris
                 sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</p>
         </div>
-        <div class="decryption">
+        <div class="decryption" style="display: none;">
             <div class="bannerFixed">Decryption</div>
             <p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
                 pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud
@@ -57,26 +57,28 @@
                 duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris
                 sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</p>
         </div>
+
+        <div class="aboutMe" style="display: none;">
+            <div class="bannerFixed">About Me</div>
+        </div>
+        <div class="privacy" style="display: none;">
+            <div class="bannerFixed">Privacy Policy</div>
+        </div>
     </div>
 </body>
 
 <script type="text/javascript">
 
     function navToggle(){
-        var containerNav = document.getElementsByClassName("containerNav")[0].classList;
-        if (containerNav.contains("containerNavShow")) {
-            containerNav.remove("containerNavShow");
+        var containerNav = document.getElementsByClassName("containerNav")[0];
+        var containerNavOutside = document.getElementsByClassName("containerNavOutside")[0];
+        if (getComputedStyle(containerNav).display == "none") {
+            containerNav.style.setProperty("display", "flex");
+            containerNavOutside.style.setProperty("display", "block");
         }
         else {
-            containerNav.add("containerNavShow");
-        }
-
-        var containerNavOutside = document.getElementsByClassName("containerNavOutside")[0].classList;
-        if (containerNavOutside.contains("containerNavOutsideShow")) {
-            containerNavOutside.remove("containerNavOutsideShow");
-        }
-        else {
-            containerNavOutside.add("containerNavOutsideShow");
+            containerNav.style.setProperty("display", "none");
+            containerNavOutside.style.setProperty("display", "none");
         }
     }
 
@@ -85,19 +87,28 @@
         var about = document.getElementsByClassName("about")[0];
         var encryption = document.getElementsByClassName("encryption")[0];
         var decryption = document.getElementsByClassName("decryption")[0];
+        var aboutMe = document.getElementsByClassName("aboutMe")[0];
+        var privacy = document.getElementsByClassName("privacy")[0];
 
         if (getComputedStyle(element).display == "none") {
             about.style.setProperty("display", "none");
             encryption.style.setProperty("display","none");
             decryption.style.setProperty("display","none");
+
+            aboutMe.style.setProperty("display","none");
+            privacy.style.setProperty("display","none");
+
             element.style.setProperty("display","block");
         }
         return false;
     }
 
-    document.getElementsByClassName("liAbout")[0].onclick = function() {jumpToBlock("about")};
-    document.getElementsByClassName("liEncryption")[0].onclick = function() {jumpToBlock("encryption")};
-    document.getElementsByClassName("liDecryption")[0].onclick = function() {jumpToBlock("decryption")};
+    document.getElementsByClassName("liAbout")[0].onclick = function() {jumpToBlock("about"); navToggle();};
+    document.getElementsByClassName("liEncryption")[0].onclick = function() {jumpToBlock("encryption"); navToggle();};
+    document.getElementsByClassName("liDecryption")[0].onclick = function() {jumpToBlock("decryption"); navToggle();};
+
+    document.getElementsByClassName("buttonAboutMe")[0].onclick = function() {jumpToBlock("aboutMe"); navToggle();};
+    document.getElementsByClassName("buttonPrivacy")[0].onclick = function() {jumpToBlock("privacy"); navToggle();};
 
 </script>
 
