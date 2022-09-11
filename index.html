@@ -103,12 +103,27 @@
         return false;
     }
 
-    document.getElementsByClassName("liAbout")[0].onclick = function() {jumpToBlock("about"); navToggle();};
-    document.getElementsByClassName("liEncryption")[0].onclick = function() {jumpToBlock("encryption"); navToggle();};
-    document.getElementsByClassName("liDecryption")[0].onclick = function() {jumpToBlock("decryption"); navToggle();};
+    function navigationButtons(){
+        if (window.matchMedia("(max-width: 1478px)").matches) {
+            document.getElementsByClassName("liAbout")[0].onclick = function() {jumpToBlock("about");navToggle();};
+            document.getElementsByClassName("liEncryption")[0].onclick = function() {jumpToBlock("encryption");navToggle();};
+            document.getElementsByClassName("liDecryption")[0].onclick = function() {jumpToBlock("decryption");navToggle();};
 
-    document.getElementsByClassName("buttonAboutMe")[0].onclick = function() {jumpToBlock("aboutMe"); navToggle();};
-    document.getElementsByClassName("buttonPrivacy")[0].onclick = function() {jumpToBlock("privacy"); navToggle();};
+            document.getElementsByClassName("buttonAboutMe")[0].onclick = function() {jumpToBlock("aboutMe");navToggle();};
+            document.getElementsByClassName("buttonPrivacy")[0].onclick = function() {jumpToBlock("privacy");navToggle();};
+        }
+        else {
+            document.getElementsByClassName("liAbout")[0].onclick = function() {jumpToBlock("about");};
+            document.getElementsByClassName("liEncryption")[0].onclick = function() {jumpToBlock("encryption");};
+            document.getElementsByClassName("liDecryption")[0].onclick = function() {jumpToBlock("decryption");};
+
+            document.getElementsByClassName("buttonAboutMe")[0].onclick = function() {jumpToBlock("aboutMe");};
+            document.getElementsByClassName("buttonPrivacy")[0].onclick = function() {jumpToBlock("privacy");};
+        }
+    }
+    navigationButtons();
+    window.matchMedia("(max-width: 1478px)").addListener(navigationButtons);
+
 
 </script>
 
